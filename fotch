@@ -1,0 +1,10 @@
+#!/bin/sh
+
+SEPERATOR="=>"
+prin() {
+    echo $1 $SEPERATOR $2
+}
+
+prin Host $(cat /etc/hostname)
+prin User $(who | awk '{print $1}')
+prin Res $(xrandr | rg "current" | awk '{print $8$9$10}' | sed 's/,//')
