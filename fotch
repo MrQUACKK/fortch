@@ -1,10 +1,22 @@
 #!/bin/sh
 
 SEPERATOR="=>"
+ART="
+    __(.)>
+    \__)
+"
 prin() {
     echo $1 $SEPERATOR $2
 }
 
+prin_second() {
+    echo "   $1 $SEPERATOR $2"
+}
+
+clear
 prin Host $(cat /etc/hostname)
-prin User $(who | awk '{print $1}')
+prin User $USER
+prin Shell $SHELL
 prin Res $(xrandr | rg "current" | awk '{print $8$9$10}' | sed 's/,//')
+prin WM $(echo $GDMSESSION)
+
