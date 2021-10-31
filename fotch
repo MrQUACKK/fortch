@@ -10,7 +10,6 @@ prin() {
 }
 
 ## Main script ##
-clear
 prin Host $(cat /etc/hostname)
 prin User $USER
 prin Shell $SHELL
