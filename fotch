@@ -2,21 +2,17 @@
 
 SEPERATOR="->"
 ART="
-    __(.)>
-    \__)
+__(.)>
+\__)
 "
 prin() {
     echo $1 $SEPERATOR $2
 }
 
-prin_second() {
-    echo "   $1 $SEPERATOR $2"
-}
-
+## Main script ##
 clear
 prin Host $(cat /etc/hostname)
 prin User $USER
 prin Shell $SHELL
 prin Res $(xrandr | rg "current" | awk '{print $8$9$10}' | sed 's/,//')
 prin WM $(echo $GDMSESSION)
-
