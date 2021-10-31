@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SEPERATOR="=>"
+SEPERATOR="->"
 ART="
     __(.)>
     \__)
