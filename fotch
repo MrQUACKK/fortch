@@ -6,15 +6,15 @@ __(.)>
 \__)
 "
 prin() {
-    echo "$1 $SEPERATOR $2"
+    echo "$1 $2 $SEPERATOR $3"
 }
 
 ## Main script ##
-prin Host $(cat /etc/hostname)
-prin User $USER
-prin Kernel $(uname -r)
-prin Shell $SHELL
-prin Res $(xrandr | rg "current" | awk '{print $8$9$10}' | sed 's/,//')
-prin WM $(echo $GDMSESSION)
-prin Packages $(pacman -Qq | wc -l)
-prin Uptime $(uptime -p | cut -c 4- | sed 's/ //g' | sed 's/,//g' | sed 's/hours/h/g' | sed 's/minutes/m/g')
+prin  Host $(cat /etc/hostname)
+prin  User $USER
+prin  Kernel $(uname -r)
+prin  Shell $SHELL
+prin  Res $(xrandr | rg "current" | awk '{print $8$9$10}' | sed 's/,//')
+prin  WM $(echo $GDMSESSION)
+prin  Packages $(pacman -Qq | wc -l)
+prin  Uptime $(uptime -p | cut -c 4- | sed 's/ //g' | sed 's/,//g' | sed 's/hours/h/g' | sed 's/minutes/m/g')
