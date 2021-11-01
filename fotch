@@ -1,11 +1,21 @@
 #!/bin/sh
 
-SEP="=>"
+# The escape sequences change the seperator to white
+# and then reset the color to have the info appear as the default fg color
+SEP="\033[1;37m=>\033[0m"
+
+# The art has escape sequences in it to change the colors
+# This is what it looks like without them:
+# __(.)>
+# \__)  
+
 
 ## Main script ##
-echo "	Host $SEP $(cat /etc/hostname)
-	User $SEP $USER
- __(.)> Shell $SEP $SHELL
- \__)	WM $SEP $(echo $GDMSESSION)
-	Packages $SEP $(pacman -Qq | wc -l)
-	Uptime $SEP $(uptime -p | cut -c 4- | sed 's/ //g' | sed 's/,//g' | sed 's/hours/h/g' | sed 's/minutes/m/g')"
+
+# Excuse this monstrosity...
+echo -e	 "\t\033[1;31mHost $SEP $(cat /etc/hostname)
+       \033[1;32m User $SEP $USER
+ __(\033[1;30m.\033[0m)\033[1;33m> \033[1;33mShell $SEP $SHELL
+ \__)  \033[1;34m WM $SEP $(echo $GDMSESSION)
+       \033[1;35m Packages $SEP $(pacman -Qq | wc -l)
+       \033[1;36m Uptime $SEP $(uptime -p | cut -c 4- | sed 's/ //g' | sed 's/,//g' | sed 's/hours/h/g; s/hour/h/g; s/minutes/m/g; s/minute/m/g')"
