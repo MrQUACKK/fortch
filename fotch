@@ -1,11 +1,11 @@
 #!/bin/sh
 
-SEPERATOR="=>"
+SEP="=>"
 
 ## Main script ##
-echo "	Host => $(cat /etc/hostname)
-	User => $USER
- __(.)> Shell => $SHELL
- \__)	WM => $(echo $GDMSESSION)
-	Packages => $(pacman -Qq | wc -l)
-	Uptime => $(uptime -p | cut -c 4- | sed 's/ //g' | sed 's/,//g' | sed 's/hours/h/g' | sed 's/minutes/m/g')"
+echo "	Host $SEP $(cat /etc/hostname)
+	User $SEP $USER
+ __(.)> Shell $SEP $SHELL
+ \__)	WM $SEP $(echo $GDMSESSION)
+	Packages $SEP $(pacman -Qq | wc -l)
+	Uptime $SEP $(uptime -p | cut -c 4- | sed 's/ //g' | sed 's/,//g' | sed 's/hours/h/g' | sed 's/minutes/m/g')"
