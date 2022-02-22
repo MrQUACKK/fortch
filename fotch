@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 . /etc/lsb-release
 
 # The escape sequences change the seperator to white
@@ -13,7 +13,6 @@ SEP="\033[1;37m=>\033[0m"
 
 ## Main script ##
 
-# Excuse this monstrosity...
 echo -e	 "\t\033[1;31mHost $SEP $(cat /etc/hostname)
        \033[1;32m User $SEP $USER
  __(\033[1;30m.\033[0m)\033[1;33m> \033[1;33mShell $SEP $SHELL
